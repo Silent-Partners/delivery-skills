@@ -1,8 +1,10 @@
-# Installing the EA Handoff Skill
+# Installing an AI Builder Handoff Skill
 
-Your Silent Partners SE has sent you a folder called `ea-handoff-llm-agent` (or similar). This document walks you through the one-time setup to install it on your machine so Claude Code can use it.
+Your Silent Partners SE has sent you a skill folder (named something like `ea-handoff-llm-agent`, `ea-handoff-rpa`, `ea-handoff-document-intelligence`, or `ea-handoff-predictive-ml`). This document walks you through the one-time setup to install it on your machine so Claude Code can use it.
 
 You only need to do this once. After that, when you're ready to write your handoff document, you can just ask Claude Code something like "help me write the handoff doc for this POC" and the skill activates automatically.
+
+Throughout the rest of this document, wherever you see `<skill-name>`, substitute the actual folder name your SE sent you.
 
 If anything below doesn't work, message your SE and they'll get you unstuck — this takes about two minutes when it goes smoothly.
 
@@ -10,7 +12,7 @@ If anything below doesn't work, message your SE and they'll get you unstuck — 
 
 ## What you need before you start
 
-- The skill folder from your SE (a folder named like `ea-handoff-llm-agent`, containing a `SKILL.md` file inside)
+- The skill folder from your SE (a folder containing a `SKILL.md` file inside)
 - Claude Code installed and working on your machine
 - About five minutes
 
@@ -48,22 +50,22 @@ If the folder already exists, these commands do nothing harmful. Safe to run eit
 
 ## Step 3: Copy the skill folder into the skills folder
 
-Take the skill folder your SE sent you (named something like `ea-handoff-llm-agent`) and move it inside the skills folder you just made sure exists.
+Take the skill folder your SE sent you and move it inside the skills folder you just made sure exists.
 
 The final structure must look like this:
 
 ```
 ~/.claude/skills/
-└── ea-handoff-llm-agent/
+└── <skill-name>/
     └── SKILL.md
 ```
 
-The `SKILL.md` file must be one level deep inside the skill folder, not two. If you accidentally end up with `~/.claude/skills/ea-handoff-llm-agent/ea-handoff-llm-agent/SKILL.md`, Claude Code will not find it. Fix this by moving the inner folder up one level.
+The `SKILL.md` file must be one level deep inside the skill folder, not two. If you accidentally end up with `~/.claude/skills/<skill-name>/<skill-name>/SKILL.md`, Claude Code will not find it. Fix this by moving the inner folder up one level.
 
 **The easiest way to verify it's right:**
 
 ```
-ls ~/.claude/skills/ea-handoff-llm-agent/
+ls ~/.claude/skills/<skill-name>/
 ```
 
 (or `dir` on Windows PowerShell instead of `ls`)
@@ -86,7 +88,7 @@ In your new Claude Code session, type:
 /skills
 ```
 
-You should see `ea-handoff-llm-agent` in the list along with a short description. If you see it, you're done.
+You should see `<skill-name>` in the list along with a short description. If you see it, you're done.
 
 If you don't see it, the most common causes are:
 
@@ -94,7 +96,7 @@ If you don't see it, the most common causes are:
 - The file is named something other than `SKILL.md` exactly (capital letters matter)
 - You're in a Claude Code session that started before you installed the skill — restart it
 
-If none of those is the issue, send your SE a screenshot of the output of `ls ~/.claude/skills/ea-handoff-llm-agent/` (or the Windows equivalent) and they'll diagnose from there.
+If none of those is the issue, send your SE a screenshot of the output of `ls ~/.claude/skills/<skill-name>/` (or the Windows equivalent) and they'll diagnose from there.
 
 ---
 

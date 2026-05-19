@@ -6,6 +6,23 @@ Versions are dated rather than semver — methodology shifts don't map cleanly t
 
 ---
 
+## 2026-05-19 (later same day)
+
+**Added: `ea-handoff-rpa`, `ea-handoff-document-intelligence`, `ea-handoff-predictive-ml`**
+
+Drafted the other three pattern handoff skills, completing first-pass coverage of the AI tool taxonomy (Generative AI is intentionally folded into `ea-handoff-llm-agent` rather than getting its own skill).
+
+All three skills share the same eight-section structure as `ea-handoff-llm-agent`, the same three decision ownership tags, and the same self-check approach. Pattern-specific divergence is in:
+
+- The "specific failure modes" section near the top of each SKILL.md, which encodes how each pattern tends to over-promise in workshop POCs
+- The capability requirements list in Section 4
+- The decisions list in Section 6
+- The self-check items that catch pattern-specific blind spots (attended-vs-unattended for RPA, evaluation methodology for Document Intelligence, feature availability and business integration for Predictive ML)
+
+**Caveat on these three:** unlike `ea-handoff-llm-agent`, which was grounded in the Pacific Hospitality Group engagement, these three were drafted from general practice rather than a specific recent engagement. They should be pressure-tested against a real workshop POC of each pattern before being considered solid. The failure modes encoded in each are the canonical ones, but customer-specific patterns will likely emerge that should be added.
+
+---
+
 ## 2026-05-19
 
 **Added: `ea-handoff-llm-agent`**

@@ -9,21 +9,25 @@ This repository is internal to Silent Partners. Do not share the skill files dir
 ## What's in here
 
 ```
-delivery-skills/
-├── README.md                          (this file — SE reference)
-├── CHANGELOG.md                       (methodology version history)
-├── INSTALL.md                         (exec-facing install instructions)
+ai-builder-skills/
+├── README.md                              (this file — SE reference)
+├── CHANGELOG.md                           (methodology version history)
+├── INSTALL.md                             (exec-facing install instructions)
 └── skills/
-    └── ea-handoff-llm-agent/          (EA handoff doc for LLM/Agent POCs)
+    ├── ea-handoff-llm-agent/              (LLM and Agent POCs)
+    │   └── SKILL.md
+    ├── ea-handoff-rpa/                    (RPA POCs)
+    │   └── SKILL.md
+    ├── ea-handoff-document-intelligence/  (Document Intelligence POCs)
+    │   └── SKILL.md
+    └── ea-handoff-predictive-ml/          (Predictive ML POCs)
         └── SKILL.md
 ```
 
-More skills will be added over time. Planned additions:
+Planned additions:
 
-- `ea-handoff-rpa` — handoff doc for RPA-pattern POCs
-- `ea-handoff-document-intelligence` — handoff doc for Document Intelligence POCs
-- `ea-handoff-predictive-ml` — handoff doc for Predictive ML POCs
 - `poc-handoff-readiness-rubric` — SE-facing gate to assess whether a POC is ready for handoff
+- A Generative AI pattern skill is deliberately not planned separately — most generative AI POCs fall under `ea-handoff-llm-agent`. If a generative use case emerges that doesn't fit that skill, we'll add one then rather than building speculatively.
 
 ---
 
@@ -31,10 +35,10 @@ More skills will be added over time. Planned additions:
 
 | Pattern | Skill to use |
 |---|---|
-| LLM-based assistants, chatbots, RAG, agents with tool use, single-turn LLM workflows | `ea-handoff-llm-agent` |
-| RPA / process automation | *not yet built* |
-| Document Intelligence (OCR, extraction, classification) | *not yet built* |
-| Predictive ML (classification, forecasting, scoring) | *not yet built* |
+| LLM-based assistants, chatbots, RAG, agents with tool use, single-turn LLM workflows, generative AI use cases | `ea-handoff-llm-agent` |
+| RPA / process automation, browser automation, desktop automation | `ea-handoff-rpa` |
+| Document Intelligence — OCR, extraction, classification, form parsing | `ea-handoff-document-intelligence` |
+| Predictive ML — classification, forecasting, scoring, recommendation on tabular or structured data | `ea-handoff-predictive-ml` |
 
 If a POC spans more than one pattern, pick the skill matching the dominant pattern and supplement with prose for the secondary capability. Do not try to merge handoff docs across patterns — EA reviewers benefit from consistent shape per pattern.
 
@@ -44,7 +48,7 @@ If a POC spans more than one pattern, pick the skill matching the dominant patte
 
 The workshop participant should never need to interact with this repo directly. The flow is:
 
-1. Clone or pull this repo on your own machine (`git clone git@github.com:Silent-Partners/delivery-skills.git`).
+1. Clone or pull this repo on your own machine (`git clone git@github.com:silentpartners/ai-builder-skills.git`).
 2. Identify the right skill folder for the participant's POC pattern (see table above).
 3. Send the participant two things:
    - The skill folder (e.g., `skills/ea-handoff-llm-agent/`) — zip it, attach in Slack, drop in their workshop Google Drive folder, whatever is convenient.
