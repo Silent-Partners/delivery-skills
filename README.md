@@ -14,15 +14,28 @@ ai-builder-skills/
 ├── CHANGELOG.md                           (methodology version history)
 ├── INSTALL.md                             (exec-facing install instructions)
 └── skills/
-    ├── ea-handoff-llm-agent/              (LLM and Agent POCs)
+    ├── studio-build/                      (build phase — building the slice with the participant)
     │   └── SKILL.md
-    ├── ea-handoff-rpa/                    (RPA POCs)
+    ├── ea-handoff-llm-agent/              (handoff phase — LLM and Agent POCs)
     │   └── SKILL.md
-    ├── ea-handoff-document-intelligence/  (Document Intelligence POCs)
+    ├── ea-handoff-rpa/                    (handoff phase — RPA POCs)
     │   └── SKILL.md
-    └── ea-handoff-predictive-ml/          (Predictive ML POCs)
+    ├── ea-handoff-document-intelligence/  (handoff phase — Document Intelligence POCs)
+    │   └── SKILL.md
+    └── ea-handoff-predictive-ml/          (handoff phase — Predictive ML POCs)
         └── SKILL.md
 ```
+
+The skills split across two phases of the engagement. `studio-build` runs at the
+**start** — it governs how Claude builds the scoped slice with the participant in Claude
+Code. The `ea-handoff-*` skills run at the **end**, once a POC exists, to produce the
+Enterprise Architecture handoff document. They never overlap; a build is never a handoff.
+
+Unlike the `ea-handoff-*` skills (SE-delivered as a folder — see "How to deliver a skill"
+below), `studio-build` is self-serve: the Studio interview emits a starter prompt that
+instructs the participant's Claude Code to install it from this repo directly. Its source
+of truth is `build-experience-v1.md` in the Studio app repo; the copy here is the synced
+runtime artifact.
 
 Planned additions:
 
@@ -35,6 +48,7 @@ Planned additions:
 
 | Pattern | Skill to use |
 |---|---|
+| Building the scoped slice with the participant (start of the build, post-interview) | `studio-build` |
 | LLM-based assistants, chatbots, RAG, agents with tool use, single-turn LLM workflows, generative AI use cases | `ea-handoff-llm-agent` |
 | RPA / process automation, browser automation, desktop automation | `ea-handoff-rpa` |
 | Document Intelligence — OCR, extraction, classification, form parsing | `ea-handoff-document-intelligence` |

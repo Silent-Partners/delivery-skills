@@ -6,6 +6,32 @@ Versions are dated rather than semver — methodology shifts don't map cleanly t
 
 ---
 
+## 2026-06-11
+
+**Added: `studio-build`**
+
+First build-phase skill, distinct from the `ea-handoff-*` handoff-phase family. Governs
+how Claude behaves while building the scoped slice with a non-technical participant in
+Claude Code: move fast down the happy path, hold the interview-agreed slice, stop only on
+expensive-to-reverse forks, surface fragility honestly, and provoke testing against the
+participant's real input. Ends by routing the participant back to the Studio to log the
+build.
+
+Prompted by a deployment gap: the Studio's self-service interview emits a starter prompt
+ending with "install the studio-build skill from this repo," but only the handoff skills
+were deployed here — so participants' Claude Code had no build-phase skill to resolve to
+and would fall through to a handoff skill (wrong tool for the phase). The methodology had
+been designed (`build-experience-v1.md` in the Studio app repo) but never deployed as a
+runnable skill.
+
+Source of truth is `build-experience-v1.md` in the Studio app repo; the `SKILL.md` here is
+the synced runtime copy plus frontmatter. The `description` is written to fire on build
+intent ("start the build with me," arriving from a Studio interview with a scoped slice)
+and to explicitly steer away from handoff-doc requests, so Claude Code never confuses the
+build phase with the handoff phase.
+
+---
+
 ## 2026-05-19 (later same day)
 
 **Added: `ea-handoff-rpa`, `ea-handoff-document-intelligence`, `ea-handoff-predictive-ml`**
