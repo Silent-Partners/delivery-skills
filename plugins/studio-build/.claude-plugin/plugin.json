@@ -1,0 +1,9 @@
+{
+  "name": "studio-build",
+  "description": "Build-phase coaching skill for AI Builder Studio participants. Guides Claude through building a scoped, finishable tool with a non-technical participant after their Studio interview — hold the agreed slice, move fast, flag fragility honestly, route back to the Studio when done.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Silent Partners",
+    "email": "richard@silent.partners"
+  }
+}

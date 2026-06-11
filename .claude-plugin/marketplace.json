@@ -1,0 +1,14 @@
+{
+  "name": "silent-partners",
+  "owner": {
+    "name": "Silent Partners",
+    "email": "richard@silent.partners"
+  },
+  "plugins": [
+    {
+      "name": "studio-build",
+      "source": "./plugins/studio-build",
+      "description": "Build-phase coaching skill: build a scoped tool with a non-technical Studio participant after their interview. Installed once; persists across builds."
+    }
+  ]
+}

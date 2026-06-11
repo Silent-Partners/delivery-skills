@@ -13,29 +13,50 @@ ai-builder-skills/
 ├── README.md                              (this file — SE reference)
 ├── CHANGELOG.md                           (methodology version history)
 ├── INSTALL.md                             (exec-facing install instructions)
-└── skills/
-    ├── studio-build/                      (build phase — building the slice with the participant)
+├── .claude-plugin/
+│   └── marketplace.json                   (plugin marketplace — lists studio-build)
+├── plugins/
+│   └── studio-build/                      (build phase — self-serve plugin)
+│       ├── .claude-plugin/plugin.json
+│       └── skills/studio-build/SKILL.md
+└── skills/                                (handoff phase — SE-delivered folders)
+    ├── ea-handoff-llm-agent/              (LLM and Agent POCs)
     │   └── SKILL.md
-    ├── ea-handoff-llm-agent/              (handoff phase — LLM and Agent POCs)
+    ├── ea-handoff-rpa/                    (RPA POCs)
     │   └── SKILL.md
-    ├── ea-handoff-rpa/                    (handoff phase — RPA POCs)
+    ├── ea-handoff-document-intelligence/  (Document Intelligence POCs)
     │   └── SKILL.md
-    ├── ea-handoff-document-intelligence/  (handoff phase — Document Intelligence POCs)
-    │   └── SKILL.md
-    └── ea-handoff-predictive-ml/          (handoff phase — Predictive ML POCs)
+    └── ea-handoff-predictive-ml/          (Predictive ML POCs)
         └── SKILL.md
 ```
 
-The skills split across two phases of the engagement. `studio-build` runs at the
-**start** — it governs how Claude builds the scoped slice with the participant in Claude
-Code. The `ea-handoff-*` skills run at the **end**, once a POC exists, to produce the
-Enterprise Architecture handoff document. They never overlap; a build is never a handoff.
+The skills split across two phases of the engagement, and the split drives how each is
+delivered:
 
-Unlike the `ea-handoff-*` skills (SE-delivered as a folder — see "How to deliver a skill"
-below), `studio-build` is self-serve: the Studio interview emits a starter prompt that
-instructs the participant's Claude Code to install it from this repo directly. Its source
-of truth is `build-experience-v1.md` in the Studio app repo; the copy here is the synced
-runtime artifact.
+- **`studio-build` (build phase, self-serve plugin).** Governs how Claude builds the
+  scoped slice with the participant in Claude Code. Distributed as a **plugin** via the
+  marketplace in this repo — the participant installs it **once** and it persists across
+  every build. Source of truth is `build-experience-v1.md` in the Studio app repo; the
+  copy here is the synced runtime artifact.
+- **`ea-handoff-*` (handoff phase, SE-delivered folders).** Run at the **end**, once a POC
+  exists, to produce the Enterprise Architecture handoff document. Still delivered the old
+  way — the SE sends the participant the relevant skill folder (see "How to deliver a
+  skill" below).
+
+They never overlap; a build is never a handoff, and `studio-build`'s description steers
+Claude away from handoff-doc requests so the wrong skill never fires.
+
+### Installing the studio-build plugin
+
+The participant runs these two commands once in Claude Code (the repo is public, no auth):
+
+```
+/plugin marketplace add silent-partners/delivery-skills
+/plugin install studio-build@silent-partners
+```
+
+After that, the skill is always present — the Studio's per-build starter prompt just
+invokes it ("Use the studio-build skill…") and never re-installs.
 
 Planned additions:
 

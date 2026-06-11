@@ -6,6 +6,30 @@ Versions are dated rather than semver — methodology shifts don't map cleanly t
 
 ---
 
+## 2026-06-11 (later same day)
+
+**Packaged `studio-build` as a self-serve plugin**
+
+Moved `skills/studio-build/` to `plugins/studio-build/` and added a plugin marketplace
+(`.claude-plugin/marketplace.json` + `plugins/studio-build/.claude-plugin/plugin.json`).
+The repo is now public, so participants install the build skill themselves with two
+commands — `/plugin marketplace add silent-partners/delivery-skills` then `/plugin install
+studio-build@silent-partners` — once, persisting across every build.
+
+This decouples install from the per-build starter prompt: the Studio no longer emits an
+"install the skill" line each time. Install is a one-time onboarding step (shown on the
+handoff page); the per-build prompt just invokes the already-present skill.
+
+Deferred for now (revisit with real users): bundling safe permission defaults. A plugin
+can't set `defaultMode` or `permissions.deny` (only `agent`/`subagentStatusLine` are
+honored from plugin settings), so safety config would need a one-time write to the user's
+settings or a cross-platform PreToolUse hook. Out of scope for v1 — these are low-risk
+internal builds.
+
+The `ea-handoff-*` skills are unchanged and still SE-delivered as folders.
+
+---
+
 ## 2026-06-11
 
 **Added: `studio-build`**
