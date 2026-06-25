@@ -1,8 +1,21 @@
 # Changelog
 
-Version history for the AI Builder Skills methodology. Each entry describes what changed in a skill and what prompted the change. When updating a skill, add an entry here so SEs delivering future engagements can see what's evolved.
+Version history for the Silent Partners skills library. Each entry describes what changed in a skill and what prompted the change. When updating a skill, add an entry here so teammates can see what's evolved.
 
-Versions are dated rather than semver — methodology shifts don't map cleanly to major/minor/patch.
+Versions are dated rather than semver — methodology and craft shifts don't map cleanly to major/minor/patch.
+
+---
+
+## 2026-06-24
+
+**Added: `motion-design/` (design-engineering skills) — `emil-design-eng`, `review-animations`**
+
+Broadened the repository beyond AI Builder delivery methodology to also hold design-engineering craft skills. Vendored Emil Kowalski's two motion/UI skills from [emilkowalski/skills](https://github.com/emilkowalski/skills) (MIT) into a new `skills/motion-design/` category:
+
+- `emil-design-eng` — UI polish, component design, and animation decisions; activates automatically during frontend craft work.
+- `review-animations` — strict animation/motion code review against a craft standard (`STANDARDS.md`); review-only, invoked deliberately.
+
+Upstream MIT `LICENSE.txt` kept alongside the skills. README reworked to cover both skill families (delivery + design-engineering) and to add install instructions and a licensing/attribution section.
 
 ---
 
