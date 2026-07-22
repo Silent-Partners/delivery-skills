@@ -6,6 +6,24 @@ Versions are dated rather than semver — methodology shifts don't map cleanly t
 
 ---
 
+## 2026-07-22
+
+**`studio-build` companion genericized + made tool-agnostic; SKILL.md now generated**
+
+The build companion is no longer Claude-Code-specific. Its behavioral body was genericized
+("your AI build tool" / "the tool" instead of "Claude Code") so the same companion runs
+across agentic engines (Claude Code, Gemini CLI, Copilot agent, Cursor) and instructed-chat
+tools. Prompted by the tool-agnostic handoff work in the Studio (customers standardize on
+different vendors; requiring Claude opened a procurement fight).
+
+The single source of truth is now `src/content/build-companion-body.md` in the Studio repo.
+This plugin's `SKILL.md` is **generated** from it via `npm run gen:companions` (the generator
+preserves this file's hand-tuned frontmatter and swaps only the body). Non-Claude tools get
+the same body as a download from the Studio handoff screen. Do not hand-edit the body here —
+edit it in the Studio and regenerate.
+
+---
+
 ## 2026-06-11 (later same day)
 
 **Packaged `studio-build` as a self-serve plugin**

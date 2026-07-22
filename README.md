@@ -33,11 +33,16 @@ ai-builder-skills/
 The skills split across two phases of the engagement, and the split drives how each is
 delivered:
 
-- **`studio-build` (build phase, self-serve plugin).** Governs how Claude builds the
-  scoped slice with the participant in Claude Code. Distributed as a **plugin** via the
-  marketplace in this repo — the participant installs it **once** and it persists across
-  every build. Source of truth is `build-experience-v1.md` in the Studio app repo; the
-  copy here is the synced runtime artifact.
+- **`studio-build` (build phase, self-serve plugin).** Governs how the build tool builds
+  the scoped slice with the participant. Distributed as a **plugin** via the marketplace in
+  this repo for Claude Code users — the participant installs it **once** and it persists
+  across every build. **This SKILL.md is generated, not hand-edited:** the single source of
+  truth is `src/content/build-companion-body.md` in the Studio app repo, and
+  `npm run gen:companions` (in that repo) rewrites this file's body from it while preserving
+  the frontmatter. Non-Claude tools get the same body as a download from the Studio handoff
+  screen, so every engine runs the same companion. Edit the body in the Studio, run the
+  generator, and commit the regenerated SKILL.md here. (The frontmatter `description` is
+  still hand-tuned here — the generator preserves it.)
 - **`ea-handoff-*` (handoff phase, SE-delivered folders).** Run at the **end**, once a POC
   exists, to produce the Enterprise Architecture handoff document. Still delivered the old
   way — the SE sends the participant the relevant skill folder (see "How to deliver a
